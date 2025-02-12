@@ -26,6 +26,7 @@ jobs:
       - name: Generate client
         run: yarn build
         env:
+          NODE_ENV: production
           GITHUB_REGISTRY_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
 
       - name: Publish to GitHub Packages
