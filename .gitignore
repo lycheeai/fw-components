@@ -4,3 +4,5 @@
 
 tsconfig.tsbuildinfo
 .env
+
+*storybook.log
