@@ -1,47 +1,53 @@
 import React from 'react'
 import { Icon } from '../Icon'
-import * as S from './ButtonClean.styled'
 import type { ButtonCleanProps } from './types'
-
-const getComponent = ({ href }: Pick<ButtonCleanProps, 'href'>) => {
-  if (href) return 'a'
-
-  return 'button'
-}
+import styles from './ButtonClean.module.css'
 
 export const ButtonClean = ({
   appearance = 'primary',
-  ariaLabel,
-  analyticsKey,
   href,
-  target,
   label,
   title,
+  target,
   icon,
-  withUnderline = true,
   disabled = false,
   type = 'button',
   onClick,
-}: ButtonCleanProps) => (
-  <S.Container
-    $appearance={appearance}
-    as={getComponent({ href })}
-    href={href || undefined}
-    target={target || undefined}
-    title={title}
-    $withUnderline={withUnderline}
-    disabled={disabled}
-    onClick={onClick || undefined}
-    type={type}
-    aria-label={ariaLabel}
-    data-testid="ButtonClean.Container"
-    data-analytics={analyticsKey}
-  >
-    {icon && (
-      <S.IconContainer data-testid="ButtonClean.Icon" aria-hidden="true">
-        <Icon component={icon} height={12} />
-      </S.IconContainer>
-    )}
-    {label}
-  </S.Container>
-)
+}: ButtonCleanProps) => {
+
+  const className = `${styles.button} ${styles[appearance]} ${styles[disabled ? 'disabled' : '']}`
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        target={target}
+        title={title}
+        className={className}
+      >
+        {icon && (
+          <div className={styles.iconContainer} data-testid="ButtonClean.Icon" aria-hidden="true">
+            <Icon component={icon} height={12} />
+          </div>
+        )}
+        {label}
+      </a>
+    )
+  } else {
+    return (
+      <button
+        disabled={disabled}
+        onClick={onClick || undefined}
+        type={type}
+        className={className}
+      >
+        {icon && (
+          <div className={styles.iconContainer} data-testid="ButtonClean.Icon" aria-hidden="true">
+            <Icon component={icon} height={12} />
+          </div>
+        )}
+        {label}
+      </button>
+    )
+  }
+}

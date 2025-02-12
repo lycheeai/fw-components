@@ -1,10 +1,16 @@
 import React from 'react'
 
 import type { LoaderProps } from './types'
-import * as S from './styled'
+import styles from './Loader.module.css'
 
-export const Loader = ({ appearance = 'secondary', size = 'medium' }: LoaderProps) => (
-  <S.Wrapper viewBox="0 0 100 100" size={size} aria-label="loader" data-testid="Loader">
-    <S.Circle cx="50" cy="50" r="45" size={size} appearance={appearance} />
-  </S.Wrapper>
-)
+export const Loader = ({ appearance = 'secondary', size = 'medium' }: LoaderProps) => {
+  const className = `${styles.wrapper} ${styles[appearance]} ${styles[size]}`
+
+  const circleClassName = `${styles.circle} ${styles[appearance]} ${styles[size]}`
+
+  return (
+    <svg viewBox="0 0 100 100" size={size} aria-label="loader" data-testid="Loader" className={className}>
+      <circle cx="50" cy="50" r="45" size={size} appearance={appearance} className={circleClassName} />
+    </svg>
+  )
+}

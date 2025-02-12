@@ -1,261 +1,182 @@
-import styled, { css } from 'styled-components'
-import tinycolor from 'tinycolor2'
+// import styled, { css } from 'styled-components'
+// import tinycolor from 'tinycolor2'
 
-import { Colors } from '../../colors'
-import type { ButtonProps } from './types'
+// import { Colors } from '../../colors'
+// import type { ButtonProps } from './types'
 
-type ContainerProps = Omit<ButtonProps, 'loading' | 'fullWidth' | 'multiline' | 'appearance'> & {
-  $appearance: 'primary' | 'secondary' | 'destructive' | 'destructive-inverted'
-  $loading: boolean
-  $fullwidth: boolean
-  $multiline: boolean
-}
+// // type ContainerProps = Omit<ButtonProps, 'loading' | 'fullWidth' | 'multiline' | 'appearance'> & {
+// //   $appearance: 'primary' | 'secondary' | 'destructive' | 'destructive-inverted'
+// //   $loading: boolean
+// //   $fullwidth: boolean
+// //   $multiline: boolean
+// // }
 
-const getContainerWidth = ({ $fullwidth }: ContainerProps) => {
-  if ($fullwidth) {
-    return '100%'
-  }
-}
+// const getContainerActiveBackground = ({ $appearance }: ContainerProps) => {
+//   if ($appearance === 'primary') {
+//     return Colors.B700
+//   }
+//   if ($appearance === 'secondary') {
+//     return Colors.GS1000
+//   }
+//   if ($appearance === 'destructive') {
+//     return Colors.R500
+//   }
+//   if ($appearance === 'destructive-inverted') {
+//     return Colors.GS400
+//   }
+// }
 
-const getContainerHeight = ({ size }: ContainerProps) => {
-  if (size === 'small') {
-    return 40
-  }
-  if (size === 'medium') {
-    return 48
-  }
-  if (size === 'large') {
-    return 56
-  }
-}
+// const getContainerActiveColor = ({ $appearance }: ContainerProps) => {
+//   if ($appearance === 'secondary') {
+//     return Colors.GS0
+//   }
+// }
 
-const getContainerHorizontalPadding = ({ size }: ContainerProps) => {
-  if (size === 'small') {
-    return 16
-  }
-  if (size === 'medium') {
-    return 20
-  }
-  if (size === 'large') {
-    return 24
-  }
-}
+// const getContainerFocusBackground = ({ $appearance }: ContainerProps) => {
+//   if ($appearance === 'primary') {
+//     return Colors.B500
+//   }
 
-const getContainerBackground = ({ $appearance }: ContainerProps) => {
-  if ($appearance === 'primary') {
-    return Colors.B500
-  }
-  if ($appearance === 'secondary') {
-    return Colors.GS300
-  }
-  if ($appearance === 'destructive') {
-    return Colors.R300
-  }
-  if ($appearance === 'destructive-inverted') {
-    return Colors.GS0
-  }
-}
+//   if ($appearance === 'secondary') {
+//     return Colors.GS300
+//   }
 
-const getContainerColor = ({ $appearance }: ContainerProps) => {
-  if ($appearance === 'primary') {
-    return Colors.GS0
-  }
-  if ($appearance === 'secondary') {
-    return Colors.GS1000
-  }
-  if ($appearance === 'destructive') {
-    return Colors.GS0
-  }
-  if ($appearance === 'destructive-inverted') {
-    return Colors.R300
-  }
-}
+//   if ($appearance === 'destructive') {
+//     return Colors.R300
+//   }
 
-const getContainerHoverBackground = ({ $appearance }: ContainerProps) => {
-  if ($appearance === 'primary') {
-    return Colors.B600
-  }
-  if ($appearance === 'secondary') {
-    return Colors.GS400
-  }
-  if ($appearance === 'destructive') {
-    return Colors.R500
-  }
-  if ($appearance === 'destructive-inverted') {
-    return Colors.GS400
-  }
-}
+//   if ($appearance === 'destructive-inverted') {
+//     return Colors.GS0
+//   }
+// }
 
-const getContainerActiveBackground = ({ $appearance }: ContainerProps) => {
-  if ($appearance === 'primary') {
-    return Colors.B700
-  }
-  if ($appearance === 'secondary') {
-    return Colors.GS1000
-  }
-  if ($appearance === 'destructive') {
-    return Colors.R500
-  }
-  if ($appearance === 'destructive-inverted') {
-    return Colors.GS400
-  }
-}
+// const getContainerFocusColor = ({ $appearance }: ContainerProps) => {
+//   if ($appearance === 'secondary') {
+//     return Colors.GS1000
+//   }
+// }
 
-const getContainerActiveColor = ({ $appearance }: ContainerProps) => {
-  if ($appearance === 'secondary') {
-    return Colors.GS0
-  }
-}
+// const getContainerDisabledBackground = (props: ContainerProps) => {
+//   return `color-mix(in oklab, ${getContainerBackground(props)} 40%, transparent)`
+// }
 
-const getContainerFocusBackground = ({ $appearance }: ContainerProps) => {
-  if ($appearance === 'primary') {
-    return Colors.B500
-  }
+// const getContainerDisabledColor = ({ $appearance }: ContainerProps) => {
+//   if ($appearance === 'secondary') {
+//     return `color-mix(in oklab, ${Colors.GS1000} 40%, transparent)`
+//   }
 
-  if ($appearance === 'secondary') {
-    return Colors.GS300
-  }
+//   return Colors.GS100
+// }
 
-  if ($appearance === 'destructive') {
-    return Colors.R300
-  }
+// export const Container = styled.button<ContainerProps>((props) => {
+//   const { $loading, $multiline } = props
 
-  if ($appearance === 'destructive-inverted') {
-    return Colors.GS0
-  }
-}
+//   return css`
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
 
-const getContainerFocusColor = ({ $appearance }: ContainerProps) => {
-  if ($appearance === 'secondary') {
-    return Colors.GS1000
-  }
-}
+//     background: ${getContainerBackground(props)};
+//     outline: none;
+//     position: relative;
 
-const getContainerDisabledBackground = (props: ContainerProps) => {
-  return `color-mix(in oklab, ${getContainerBackground(props)} 40%, transparent)`
-}
+//     white-space: nowrap;
 
-const getContainerDisabledColor = ({ $appearance }: ContainerProps) => {
-  if ($appearance === 'secondary') {
-    return `color-mix(in oklab, ${Colors.GS1000} 40%, transparent)`
-  }
+//     font-weight: 600;
 
-  return Colors.GS100
-}
+//     font-size: 16px;
+//     font-family: inherit;
+//     line-height: 24px;
+//     color: ${getContainerColor(props)};
 
-export const Container = styled.button<ContainerProps>((props) => {
-  const { $loading, $multiline } = props
+//     appearance: none !important; // NOTE: Required for Safari.
 
-  return css`
-    display: flex;
-    align-items: center;
-    justify-content: center;
+//     ${$multiline &&
+//     css`
+//       height: auto;
+//       min-height: ${getContainerHeight(props)}px;
 
-    width: ${getContainerWidth(props)};
-    height: ${getContainerHeight(props)}px;
-    padding-left: ${getContainerHorizontalPadding(props)}px;
-    padding-right: ${getContainerHorizontalPadding(props)}px;
-    background: ${getContainerBackground(props)};
-    outline: none;
-    position: relative;
+//       white-space: normal;
+//       word-break: break-all;
+//     `}
+//     ${!$loading &&
+//     css`
+//       &:hover {
+//         background: ${getContainerHoverBackground(props)};
 
-    white-space: nowrap;
+//         color: ${getContainerColor(props)};
+//       }
 
-    font-weight: 600;
+//       &:active {
+//         background: ${getContainerActiveBackground(props)};
 
-    font-size: 16px;
-    font-family: inherit;
-    line-height: 24px;
-    color: ${getContainerColor(props)};
+//         color: ${getContainerActiveColor(props)};
+//       }
 
-    appearance: none !important; // NOTE: Required for Safari.
+//       &:focus {
+//         background: ${getContainerFocusBackground(props)};
 
-    ${$multiline &&
-    css`
-      height: auto;
-      min-height: ${getContainerHeight(props)}px;
+//         color: ${getContainerFocusColor(props)};
 
-      white-space: normal;
-      word-break: break-all;
-    `}
-    ${!$loading &&
-    css`
-      &:hover {
-        background: ${getContainerHoverBackground(props)};
+//         &:after {
+//           content: '';
+//           position: absolute;
+//           padding: 2px;
+//           border: 1px solid ${getContainerFocusBackground(props)};
+//           width: 100%;
+//           height: 100%;
+//         }
+//       }
+//     `}
+//     &:disabled {
+//       cursor: not-allowed;
 
-        color: ${getContainerColor(props)};
-      }
+//       ${!$loading &&
+//       css`
+//         background: ${getContainerDisabledBackground(props)};
+//         color: ${getContainerDisabledColor(props)};
+//       `}
+//     }
+//   `
+// })
 
-      &:active {
-        background: ${getContainerActiveBackground(props)};
+// export const IconContainer = styled.div<{ color?: string }>`
+//   display: flex;
+//   align-self: center;
 
-        color: ${getContainerActiveColor(props)};
-      }
+//   ${({ color }) =>
+//     color &&
+//     css`
+//       color: ${color};
+//     `}
 
-      &:focus {
-        background: ${getContainerFocusBackground(props)};
+//   + span {
+//     padding-left: 10px;
+//   }
+// `
 
-        color: ${getContainerFocusColor(props)};
+// export const Label = styled.span<{ $loading: boolean }>`
+//   display: flex;
 
-        &:after {
-          content: '';
-          position: absolute;
-          padding: 2px;
-          border: 1px solid ${getContainerFocusBackground(props)};
-          width: 100%;
-          height: 100%;
-        }
-      }
-    `}
-    &:disabled {
-      cursor: not-allowed;
+//   > span + ${IconContainer} {
+//     padding-left: 10px;
+//   }
 
-      ${!$loading &&
-      css`
-        background: ${getContainerDisabledBackground(props)};
-        color: ${getContainerDisabledColor(props)};
-      `}
-    }
-  `
-})
+//   ${({ $loading }) =>
+//     $loading &&
+//     css`
+//       visibility: hidden;
+//     `}
+// `
 
-export const IconContainer = styled.div<{ color?: string }>`
-  display: flex;
-  align-self: center;
+// export const LoaderContainer = styled.div`
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
 
-  ${({ color }) =>
-    color &&
-    css`
-      color: ${color};
-    `}
-
-  + span {
-    padding-left: 10px;
-  }
-`
-
-export const Label = styled.span<{ $loading: boolean }>`
-  display: flex;
-
-  > span + ${IconContainer} {
-    padding-left: 10px;
-  }
-
-  ${({ $loading }) =>
-    $loading &&
-    css`
-      visibility: hidden;
-    `}
-`
-
-export const LoaderContainer = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// `

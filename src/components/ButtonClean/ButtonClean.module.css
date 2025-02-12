@@ -1,0 +1,59 @@
+.icon-container {
+  position: relative;
+  top: -1px;
+  display: flex;
+  align-self: center;
+  padding-right: 8px;
+}
+
+.destructive {
+  color: var(--color-r300);
+}
+
+.destructive:hover {
+  color: var(--color-r500);
+}
+
+.primary {
+  color: var(--color-b500);
+}
+
+.primary:hover {
+  color: var(--color-b500);
+}
+
+.button {
+  display: inline-flex;
+
+  font-weight: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: 150%;
+  color: var(--color-b500);
+
+  appearance: none !important; /* NOTE: Required for Safari. */
+}
+
+.button:hover {
+  color: var(--color-b500);
+}
+
+.button:active {
+  color: var(--color-b500);
+}
+
+.button:focus {
+  color: var(--color-b500);
+}
+
+.button:hover {
+  .icon-container {
+    svg > path {
+      stroke: var(--color-b500);
+    }
+  }
+}
+
+.button.disabled {
+  cursor: not-allowed;
+}

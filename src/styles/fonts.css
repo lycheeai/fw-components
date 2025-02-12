@@ -1,0 +1,128 @@
+/* PP Telegraf */
+@font-face {
+  font-family: "PP Telegraf";
+  font-weight: 400;
+  src: url('./fonts/PPTelegrafFont/PPTelegraf-Regular.woff2') format('woff2'),
+    url('./fonts/PPTelegrafFont/PPTelegraf-Regular.woff') format('woff'),
+    url('./fonts/PPTelegrafFont/PPTelegraf-Regular.otf') format('opentype');
+
+  font-display: block;
+}
+
+@font-face {
+  font-family: "PP Telegraf";
+  font-weight: 600;
+  src: url('./fonts/PPTelegrafFont/PPTelegraf-SemiBold.woff2') format('woff2'),
+    url('./fonts/PPTelegrafFont/PPTelegraf-SemiBold.woff') format('woff'),
+    url('./fonts/PPTelegrafFont/PPTelegraf-SemiBold.otf') format('opentype');
+
+  font-display: block;
+}
+
+@font-face {
+  font-family: "PP Telegraf";
+  font-weight: 700;
+  src: url('./fonts/PPTelegrafFont/PPTelegraf-Bold.woff2') format('woff2'),
+    url('./fonts/PPTelegrafFont/PPTelegraf-Bold.woff') format('woff'),
+    url('./fonts/PPTelegrafFont/PPTelegraf-Bold.otf') format('opentype');
+
+  font-display: block;
+}
+
+/* PT Mono */
+@font-face {
+  font-family: "PT Mono";
+  font-weight: 400;
+  src: url('./fonts/PTMonoFont/PTMono-Regular.otf') format('opentype');
+}
+
+/* Suisse Intl */
+@font-face {
+  font-family: "Suisse Int'l";
+  font-weight: 100;
+  src: url('./fonts/SuisseIntlFont/SuisseIntl-UltraLight.woff2') format('woff2'),
+    url('./fonts/SuisseIntlFont/SuisseIntl-UltraLight.woff') format('woff'),
+    url('./fonts/SuisseIntlFont/SuisseIntl-UltraLight.otf') format('opentype');
+
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Suisse Int'l";
+  font-weight: 200;
+  src: url('./fonts/SuisseIntlFont/SuisseIntl-Thin.woff2') format('woff2'),
+    url('./fonts/SuisseIntlFont/SuisseIntl-Thin.woff') format('woff'),
+    url('./fonts/SuisseIntlFont/SuisseIntl-Thin.otf') format('opentype');
+
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Suisse Int'l";
+  font-weight: 300;
+  src: url('./fonts/SuisseIntlFont/SuisseIntl-Light.woff2') format('woff2'),
+    url('./fonts/SuisseIntlFont/SuisseIntl-Light.woff') format('woff'),
+    url('./fonts/SuisseIntlFont/SuisseIntl-Light.otf') format('opentype');
+
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Suisse Int'l";
+  font-weight: 400;
+  src: url('./fonts/SuisseIntlFont/SuisseIntl-Regular.woff2') format('woff2'),
+    url('./fonts/SuisseIntlFont/SuisseIntl-Regular.woff') format('woff'),
+    url('./fonts/SuisseIntlFont/SuisseIntl-Regular.otf') format('opentype');
+
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Suisse Int'l";
+  font-weight: 500;
+  src: url('./fonts/SuisseIntlFont/SuisseIntl-Medium.woff2') format('woff2'),
+    url('./fonts/SuisseIntlFont/SuisseIntl-Medium.woff') format('woff'),
+    url('./fonts/SuisseIntlFont/SuisseIntl-Medium.otf') format('opentype');
+
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Suisse Int'l";
+  font-weight: 600;
+  src: url('./fonts/SuisseIntlFont/SuisseIntl-SemiBold.woff2') format('woff2'),
+    url('./fonts/SuisseIntlFont/SuisseIntl-SemiBold.woff') format('woff'),
+    url('./fonts/SuisseIntlFont/SuisseIntl-SemiBold.otf') format('opentype');
+
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Suisse Int'l";
+  font-weight: 700;
+  src: url('./fonts/SuisseIntlFont/SuisseIntl-Bold.woff2') format('woff2'),
+    url('./fonts/SuisseIntlFont/SuisseIntl-Bold.woff') format('woff'),
+    url('./fonts/SuisseIntlFont/SuisseIntl-Bold.otf') format('opentype');
+
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Suisse Int'l";
+  font-weight: 900;
+  src: url('./fonts/SuisseIntlFont/SuisseIntl-Black.woff2') format('woff2'),
+    url('./fonts/SuisseIntlFont/SuisseIntl-Black.woff') format('woff'),
+    url('./fonts/SuisseIntlFont/SuisseIntl-Black.otf') format('opentype');
+
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Suisse Int'l Cond";
+  font-weight: 700;
+  font-style: italic;
+  src: url('./fonts/SuisseIntlFont/SuisseIntlCond-BoldItalic.woff2') format('woff2'),
+    url('./fonts/SuisseIntlFont/SuisseIntlCond-BoldItalic.woff') format('woff');
+
+  font-display: block;
+}

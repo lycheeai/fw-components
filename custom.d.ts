@@ -1,9 +1,5 @@
-declare module '*.svg' {
-  const content: string
-  export const ReactComponent: (props: SVGAttributes<SVGElement>) => JSX.Element
-  export default content
+// Declare modules for CSS files
+declare module "*.module.css" {
+  const classes: { [key: string]: string };
+  export default classes;
 }
-
-declare module '*.otf'
-declare module '*.woff'
-declare module '*.woff2'

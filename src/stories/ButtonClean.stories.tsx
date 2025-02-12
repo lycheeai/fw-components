@@ -3,9 +3,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
 import { ButtonClean } from '../components/ButtonClean/ButtonClean';
-import { GlobalStyle } from '../assets/GlobalStyle';
-import { PPTelegrafFont } from '../assets/PPTelegrafFont/PPTelegrafFont';
-import { SuisseIntlFont } from '../assets/SuisseIntlFont/SuisseIntlFont';
+// import { GlobalStyle } from '../assets/GlobalStyle';
+// import { PPTelegrafFont } from '../assets/PPTelegrafFont/PPTelegrafFont';
+// import { SuisseIntlFont } from '../assets/SuisseIntlFont/SuisseIntlFont';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -26,9 +26,9 @@ const meta = {
   decorators: [
     (Story) => (
       <div>
-        <GlobalStyle />
+        {/* <GlobalStyle />
         <PPTelegrafFont />
-        <SuisseIntlFont />
+        <SuisseIntlFont /> */}
         <Story />
       </div>
     ),
