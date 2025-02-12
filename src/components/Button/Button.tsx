@@ -33,7 +33,7 @@ export const Button = ({
   onClick,
 }: ButtonProps) => {
 
-  const buttonClassName = `${styles.button} ${styles[appearance]} ${styles[size]} ${styles[disabled ? 'disabled' : '']} ${className}`
+  const buttonClassName = `${styles.button} ${styles[appearance]} ${styles[size]} ${styles[disabled ? 'disabled' : '']} ${styles[fullWidth ? 'full-width' : '']} ${styles[multiline ? 'multiline' : '']} ${className}`
 
   if (!disabled && href) {
     return <a
@@ -69,12 +69,7 @@ export const Button = ({
     return <button
       ref={forwardedRef}
       id={id}
-      as={getComponent({ href, disabled })}
       role="button"
-      size={size}
-      href={!disabled ? href : undefined}
-      target={target}
-      download={download}
       disabled={disabled || loading}
       type={type}
       onClick={onClick}

@@ -19,6 +19,8 @@
       "strictBindCallApply": false,
       "noFallthroughCasesInSwitch": false,
       "jsx": "react"
-    }
+    },
+    "include": ["src/**/*", "src/**/*.otf", "custom.d.ts"],
+    "exclude": ["src/stories/**/*.*"]    
   }
   
