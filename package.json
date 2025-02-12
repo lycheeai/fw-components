@@ -1,6 +1,6 @@
 {
   "name": "@lycheeai/fw-components",
-  "version": "0.3.9",
+  "version": "0.3.10",
   "description": "",
   "author": "",
   "license": "UNLICENSED",
@@ -40,7 +40,13 @@
   },
   "module": "dist/component-library.es.js",
   "main": "dist/component-library.umd.js",
-  "style": "dist/styles/index.css",
+  "exports": {
+    ".": {
+      "import": "./dist/component-library.es.js",
+      "require": "./dist/component-library.umd.js"
+    }
+  },
+  "style": "dist/fw-components.css",
   "types": "dist/src/index.d.ts",
   "jest": {
     "moduleFileExtensions": [
