@@ -7,6 +7,7 @@ export default defineConfig({
     react(),
   ],
   build: {
+    assetsInlineLimit: 1000000,
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'ComponentLibrary',
