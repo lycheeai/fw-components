@@ -12,9 +12,9 @@
 @font-face {
   font-family: "PP Telegraf";
   font-weight: 600;
-  src: url('./fonts/PPTelegrafFont/PPTelegraf-SemiBold.woff2') format('woff2'),
-    url('./fonts/PPTelegrafFont/PPTelegraf-SemiBold.woff') format('woff'),
-    url('./fonts/PPTelegrafFont/PPTelegraf-SemiBold.otf') format('opentype');
+  src: url('./fonts/PPTelegrafFont/PPTelegraf-Semibold.woff2') format('woff2'),
+    url('./fonts/PPTelegrafFont/PPTelegraf-Semibold.woff') format('woff'),
+    url('./fonts/PPTelegrafFont/PPTelegraf-Semibold.otf') format('opentype');
 
   font-display: block;
 }
