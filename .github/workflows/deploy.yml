@@ -1,0 +1,34 @@
+name: Publish to GitHub Packages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: yarn install
+        env:
+          GITHUB_REGISTRY_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
+
+      - name: Generate client
+        run: yarn build
+        env:
+          GITHUB_REGISTRY_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
+
+      - name: Publish to GitHub Packages
+        run: yarn publish
+        env:
+          GITHUB_REGISTRY_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
