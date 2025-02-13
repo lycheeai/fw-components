@@ -3,9 +3,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
 import { ButtonClean } from '../components/ButtonClean/ButtonClean';
-// import { GlobalStyle } from '../assets/GlobalStyle';
-// import { PPTelegrafFont } from '../assets/PPTelegrafFont/PPTelegrafFont';
-// import { SuisseIntlFont } from '../assets/SuisseIntlFont/SuisseIntlFont';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -19,20 +16,12 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    backgroundColor: { control: 'color' },
+    appearance: { control: 'select' },
+    disabled: { control: 'boolean' },
+    withUnderline: { control: 'boolean' },
   },
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: { onClick: fn() },
-  decorators: [
-    (Story) => (
-      <div>
-        {/* <GlobalStyle />
-        <PPTelegrafFont />
-        <SuisseIntlFont /> */}
-        <Story />
-      </div>
-    ),
-  ],
 } satisfies Meta<typeof ButtonClean>;
 
 export default meta;

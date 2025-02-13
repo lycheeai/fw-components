@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { Loader } from '../Loader'
+import * as S from './styled'
 import type { ButtonProps } from './types'
-import styles from './Button.module.css'
 
 const getComponent = ({ href, disabled }: Pick<ButtonProps, 'href' | 'disabled'>) => {
   if (!disabled && href) {
@@ -30,73 +30,49 @@ export const Button = ({
   multiline = false,
   type = 'button',
   className,
+  analytics,
   onClick,
-}: ButtonProps) => {
-
-  const buttonClassName = `${styles.button} ${styles[appearance]} ${styles[size]} ${styles[disabled ? 'disabled' : '']} ${styles[fullWidth ? 'full-width' : '']} ${styles[multiline ? 'multiline' : '']} ${className}`
-
-  if (!disabled && href) {
-    return <a
-      href={href}
-      target={target}
-      download={download}
-      className={buttonClassName}
-      data-testid="button"
-    >
-      <span className={`${styles.label} ${loading ? styles.labelLoading : ''}`}>
-        {leftIcon ? (
-          <div className={styles.iconContainer} aria-hidden="true">
-            {leftIcon}
-          </div>
-        ) : null}
-        {label && <span>{label}</span>}
-        {icon && (
-          <div className={styles.iconContainer} aria-hidden="true">
-            {icon}
-          </div>
-        )}
-      </span>
-      {loading && (
-        <div className={styles.loaderContainer}>
-          <Loader
-            appearance={appearance === 'secondary' ? 'secondary' : 'primary'}
-            size={size === 'small' ? 'medium' : 'large'}
-          />
-        </div>
+}: ButtonProps) => (
+  <S.Container
+    ref={forwardedRef}
+    id={id}
+    as={getComponent({ href, disabled })}
+    role="button"
+    $appearance={appearance}
+    size={size}
+    href={!disabled ? href : undefined}
+    target={target}
+    download={download}
+    disabled={disabled || loading}
+    $loading={loading}
+    $fullwidth={fullWidth} // React does not recognize the `fullWidth` prop on a DOM element.
+    $multiline={multiline}
+    type={type}
+    onClick={onClick}
+    className={className}
+    data-analytics={analytics}
+    data-testid="button"
+  >
+    <S.Label $loading={loading}>
+      {leftIcon && (
+        <S.IconContainer color={iconColor} aria-hidden="true">
+          {leftIcon}
+        </S.IconContainer>
       )}
-    </a>
-  } else {
-    return <button
-      ref={forwardedRef}
-      id={id}
-      role="button"
-      disabled={disabled || loading}
-      type={type}
-      onClick={onClick}
-      className={buttonClassName}
-      data-testid="button"
-    >
-      <span className={`${styles.label} ${loading ? styles.labelLoading : ''}`}>
-        {leftIcon && (
-          <div className={styles.iconContainer} aria-hidden="true">
-            {leftIcon}
-          </div>
-        )}
-        {label && <span>{label}</span>}
-        {icon && (
-          <div className={styles.iconContainer} aria-hidden="true">
-            {icon}
-          </div>
-        )}
-      </span>
-      {loading && (
-        <div className={styles.loaderContainer}>
-          <Loader
-            appearance={appearance === 'secondary' ? 'secondary' : 'primary'}
-            size={size === 'small' ? 'medium' : 'large'}
-          />
-        </div>
-      )}      
-    </button>
-  }
-}
+      {label && <span>{label}</span>}
+      {icon && (
+        <S.IconContainer color={iconColor} aria-hidden="true">
+          {icon}
+        </S.IconContainer>
+      )}
+    </S.Label>
+    {loading && (
+      <S.LoaderContainer>
+        <Loader
+          appearance={appearance === 'secondary' ? 'secondary' : 'primary'}
+          size={size === 'small' ? 'medium' : 'large'}
+        />
+      </S.LoaderContainer>
+    )}
+  </S.Container>
+)
