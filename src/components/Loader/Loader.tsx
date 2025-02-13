@@ -9,8 +9,8 @@ export const Loader = ({ appearance = 'secondary', size = 'medium' }: LoaderProp
   const circleClassName = `${styles.circle} ${styles[appearance]} ${styles[size]}`
 
   return (
-    <svg viewBox="0 0 100 100" size={size} aria-label="loader" data-testid="Loader" className={className}>
-      <circle cx="50" cy="50" r="45" size={size} appearance={appearance} className={circleClassName} />
+    <svg viewBox="0 0 100 100" aria-label="loader" data-testid="Loader" className={className}>
+      <circle cx="50" cy="50" r="45" className={circleClassName} />
     </svg>
   )
 }
